@@ -39,7 +39,7 @@ class PerhitunganController extends Controller
         $classifier = $this->trainNaiveBayes($data_latih);
         $predictions = $this->testNaiveBayes($classifier, $data_uji, $formattedAtributNames);
 
-        dd($predictions);
+        // dd($predictions);
 
         $this->simpanHasil($predictions);
         $this->simpanRiwayat($predictions);

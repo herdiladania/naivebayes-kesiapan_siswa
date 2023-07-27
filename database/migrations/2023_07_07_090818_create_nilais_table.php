@@ -17,7 +17,6 @@ class CreateNilaisTable extends Migration
             $table->id();
             $table->unsignedBigInteger('atribut_id');
             $table->string('nama_nilai');
-            $table->integer('nilai');
             $table->timestamps();
 
             $table->foreign('atribut_id')->references('id')->on('atributs')->onDelete('cascade');

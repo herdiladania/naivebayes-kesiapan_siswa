@@ -34,10 +34,8 @@ class NilaiController extends Controller
         $validatedData = $request->validate([
             'atribut_id' => 'required',
             'nama_nilai' => 'required|string',
-            'nilai' => 'required',
         ], [
             'nama_nilai.required' => 'Nama Masih Kosong',
-            'nilai.required' => 'Nilai Masih Kosong',
         ]);
 
         Nilai::create($validatedData);
@@ -55,10 +53,8 @@ class NilaiController extends Controller
         $data = Nilai::findOrFail($id);
         $validatedData = $request->validate([
             'nama_nilai' => 'required|string',
-            'nilai' => 'required',
         ], [
             'nama_nilai.required' => 'Nama Masih Kosong',
-            'nilai.required' => 'Nilai Masih Kosong',
         ]);
 
 

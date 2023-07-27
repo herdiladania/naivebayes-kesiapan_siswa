@@ -44,8 +44,7 @@
                             <thead class="bg-dark text-white">
                                 <tr>
                                     <th width="5%">No</th>
-                                    <th>Nama</th>
-                                    <th>Nilai</th>
+                                    <th>Nama Nilai Atribut</th>
                                     <th width="15%">Aksi</th>
                                 </tr>
                             </thead>
@@ -54,9 +53,11 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $nilai->nama_nilai }}</td>
-                                        <td>{{ $nilai->nilai }}</td>
                                         <td>
                                             <a href="#" class="btn btn-info" data-toggle="modal"
+                                                data-target="#showModal{{ $nilai->id }}"><i
+                                                    class="fas fa-eye fa-xs"></i></a>
+                                            <a href="#" class="btn btn-warning" data-toggle="modal"
                                                 data-target="#editModal{{ $nilai->id }}"><i
                                                     class="fas fa-edit fa-xs"></i></a>
                                             <a href="#" class="btn btn-danger" data-toggle="modal"
@@ -88,11 +89,6 @@
                                 <div class="form-group">
                                     <label for="nama">Nama</label>
                                     <input type="text" class="form-control" id="nama_nilai" name="nama_nilai"
-                                        autocomplete="off" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="bobot">Nilai</label>
-                                    <input type="number" class="form-control" id="nilai" name="nilai"
                                         autocomplete="off" required>
                                 </div>
                             </div>
@@ -128,11 +124,6 @@
                                         <input type="text" class="form-control" id="nama_nilai" name="nama_nilai"
                                             autocomplete="off" value="{{ $nilai->nama_nilai }}" required>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="nilai">Nilai</label>
-                                        <input type="number" class="form-control" id="nilai" name="nilai"
-                                            autocomplete="off" value="{{ $nilai->nilai }}" required>
-                                    </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-warning" data-dismiss="modal"><i
@@ -145,6 +136,33 @@
                         </div>
                     </div>
                 </div>
+
+
+
+                <!-- showModal -->
+                <div class="modal fade" id="showModal{{ $nilai->id }}" tabindex="-1" role="dialog"
+                    aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="myModalLabel"><i class="fa fa-eye"></i> Data Nilai
+                                </h5>
+                                <button type="button" class="close" data-dismiss="modal"
+                                    aria-hidden="true">&times;</button>
+                            </div>
+
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="nama">Nama</label>
+                                    <input type="text" class="form-control" id="nama_nilai" name="nama_nilai"
+                                        autocomplete="off" value="{{ $nilai->nama_nilai }}" disabled>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
 
                 <!-- Delete Modal -->
                 <div class="modal fade" id="deleteModal{{ $nilai->id }}" tabindex="-1" role="dialog"

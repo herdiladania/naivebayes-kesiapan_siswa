@@ -45,6 +45,8 @@
                                     <td>{{ $keys->agama }}</td>
                                     <td>
                                         <a href="#" class="btn btn-info" data-toggle="modal"
+                                            data-target="#showModal{{ $key }}"><i class="fas fa-eye fa-xs"></i></a>
+                                        <a href="#" class="btn btn-warning" data-toggle="modal"
                                             data-target="#editModal{{ $key }}"><i
                                                 class="fas fa-edit fa-xs"></i></a>
                                         <a href="#" class="btn btn-danger" data-toggle="modal"
@@ -246,6 +248,90 @@
                                         Simpan</button>
                                 </div>
                             </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- showmodal -->
+                <div class="modal fade" id="showModal{{ $key }}" tabindex="-1" role="dialog"
+                    aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="myModalLabel"><i class="fa fa-edit"></i> Data Siswa</h5>
+                                <button type="button" class="close" data-dismiss="modal"
+                                    aria-hidden="true">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="nama_lengkap">Nama Lengkap</label>
+                                            <input type="text" class="form-control" id="nama_lengkap"
+                                                name="nama_lengkap" autocomplete="off" disabled
+                                                value="{{ $keys->nama_lengkap }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="jenis_kelamin">Jenis Kelamin</label><select class="form-control"
+                                                name="jenis_kelamin" id="jenis_kelamin" disabled>
+                                                <option>{{ $keys->jenis_kelamin }}</option>
+                                                <option value="Laki-Laki">Laki-Laki</option>
+                                                <option value="Perempuan">Perempuan</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="usia">Usia</label>
+                                            <input type="number" class="form-control" id="usia" name="usia"
+                                                autocomplete="off" disabled value="{{ $keys->usia }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="tmp_lahir">Tempat Lahir</label>
+                                            <input type="text" class="form-control" id="tmp_lahir" name="tmp_lahir"
+                                                autocomplete="off" disabled value="{{ $keys->tmp_lahir }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="tgl_lahir">Tanggal Lahir</label>
+                                            <input type="date" class="form-control" id="tgl_lahir" name="tgl_lahir"
+                                                autocomplete="off" disabled value="{{ $keys->tgl_lahir }}">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="agama">Agama</label><select class="form-control"
+                                                name="agama" id="agama" disabled>
+                                                <option>{{ $keys->agama }}</option>
+                                                <option value="Islam">Islam</option>
+                                                <option value="Kristen">Kristen</option>
+                                                <option value="Hindu">Hindu</option>
+                                                <option value="Budha">Budha</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nama_ayah">Nama Ayah</label>
+                                            <input type="text" class="form-control" id="nama_ayah" name="nama_ayah"
+                                                autocomplete="off" disabled value="{{ $keys->nama_ayah }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nama_ibu">Nama Ibu</label>
+                                            <input type="text" class="form-control" id="nama_ibu" name="nama_ibu"
+                                                autocomplete="off" disabled value="{{ $keys->nama_ibu }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="pekerjaan_ayah">Pekerjaan Ayah</label>
+                                            <input type="text" class="form-control" id="pekerjaan_ayah"
+                                                name="pekerjaan_ayah" autocomplete="off" disabled
+                                                value="{{ $keys->pekerjaan_ayah }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="pekerjaan_ibu">Pekerjaan Ibu</label>
+                                            <input type="text" class="form-control" id="pekerjaan_ibu"
+                                                name="pekerjaan_ibu" autocomplete="off" disabled
+                                                value="{{ $keys->pekerjaan_ibu }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

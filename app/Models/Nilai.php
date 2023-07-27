@@ -10,7 +10,6 @@ class Nilai extends Model
     protected $fillable = [
         'atribut_id',
         'nama_nilai',
-        'nilai',
     ];
 
     public function atribut()
