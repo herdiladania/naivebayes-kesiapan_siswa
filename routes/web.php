@@ -1,19 +1,17 @@
 <?php
 
+use App\Http\Controllers\AkunController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\AspekController;
 use App\Http\Controllers\NilaiController;
-use App\Http\Controllers\PohonController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\AtributController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\DataLatihController;
 use App\Http\Controllers\HasilController;
-use App\Http\Controllers\KriteriaController;
 use App\Http\Controllers\PenilaianController;
 use App\Http\Controllers\PerhitunganController;
-use App\Http\Controllers\SubkriteriaController;
+use App\Http\Controllers\RiwayatController;
 use App\Models\Hasil;
 
 /*
@@ -28,8 +26,8 @@ use App\Models\Hasil;
 */
 
 Route::get('/', function () {
-    return view('login', [
-        'title' => 'ReNature',
+    return view('landing_page', [
+        'title' => 'SIPAMAD',
     ]);
 });
 
@@ -57,6 +55,9 @@ Route::group(['middleware' => ['auth']], function () {
         Route::prefix('data-latih')->group(function () {
             Route::get('/', [DataLatihController::class, 'index'])->name('data-latih');
             Route::post('/import', [DataLatihController::class, 'import'])->name('idata-latih');
+            Route::post('/store', [DataLatihController::class, 'store'])->name('sdata-latih');
+            Route::patch('/update{id}', [DataLatihController::class, 'update'])->name('udata-latih');
+            Route::delete('/delete{id}', [DataLatihController::class, 'destroy'])->name('ddata-latih');
         });
 
         //Data Atribut
@@ -94,6 +95,21 @@ Route::group(['middleware' => ['auth']], function () {
         Route::prefix('data-hasil')->group(function () {
             Route::get('/', [HasilController::class, 'index'])->name('data-hasil');
             Route::get('/riwayat', [HasilController::class, 'riwayat'])->name('data-riwayat');
+        });
+
+        // Data Riwayat
+        Route::prefix('data-riwayat')->group(function () {
+            Route::get('/', [RiwayatController::class, 'index'])->name('data-riwayat');
+        });
+
+
+
+        //Kelola Akun
+        Route::prefix('kelola-akun')->group(function () {
+            Route::get('/', [AkunController::class, 'index'])->name('kelola-akun');
+            Route::post('/store', [AkunController::class, 'store'])->name('skelola-akun');
+            Route::patch('/update{id}', [AkunController::class, 'update'])->name('ukelola-akun');
+            Route::delete('/delete{id}', [AkunController::class, 'destroy'])->name('dkelola-akun');
         });
     });
 });

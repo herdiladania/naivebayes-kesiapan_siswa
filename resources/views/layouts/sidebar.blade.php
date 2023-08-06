@@ -9,6 +9,8 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-left" href="/beranda">
                 <div class="sidebar-brand-text mx-3">SIPAMAD</div>
+                <img class="logo" src="{{ asset('HeroBiz') }}/assets/img/logo.png" alt="SIPAMAD Logo">
+
             </a>
 
             <!-- Divider -->
@@ -55,27 +57,17 @@
                 <a class="nav-link" href="{{ route('data-riwayat') }}">
                     <i class="fas fa-fw fa-history"></i>
                     <span>Riwayat</span></a>
-                <!-- Nav Item - Utilities Collapse Menu -->
-                <!-- Divider -->
                 <hr class="sidebar-divider">
             </li>
             <!-- Nav Item - Charts -->
-            {{-- <li class="nav-item">
-                <a class="nav-link" href="/">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('kelola-akun') }}">
                     <i class="fas fa-fw fa-user"></i>
                     <span>Kelola Akun</span></a>
-            </li> --}}
+            </li>
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
-
-            {{-- <!-- Sidebar Message -->
-          <div class="sidebar-card d-none d-lg-flex">
-              <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
-              <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
-              <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-          </div> --}}
-
         </ul>
         <!-- End of Sidebar -->

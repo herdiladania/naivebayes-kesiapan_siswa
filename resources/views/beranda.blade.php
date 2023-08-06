@@ -65,7 +65,6 @@
                 </div>
             </div>
 
-
             <div class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-left-warning shadow h-100 py-2">
                     <div class="card-body">
@@ -92,7 +91,7 @@
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Riwayat Kesiapan</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Grafik Kesiapan</h6>
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
@@ -104,7 +103,6 @@
             </div>
         </div> --}}
     </div>
-
 
     <!-- /.container-fluid -->
 

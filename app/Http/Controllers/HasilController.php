@@ -15,12 +15,4 @@ class HasilController extends Controller
             "title" => "Data Hasil"
         ]);
     }
-
-    public function riwayat()
-    {
-        $data = Riwayat::All();
-        return view('data_riwayat.index', compact('data'))->with([
-            "title" => "Data Riwayat"
-        ]);
-    }
 }

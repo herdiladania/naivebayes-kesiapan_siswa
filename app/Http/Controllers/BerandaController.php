@@ -18,6 +18,9 @@ class BerandaController extends Controller
         $count_nilai = Nilai::count();
         $count_riwayat = Riwayat::count();
 
+
+
+
         return view('beranda', [
             "title" => "Beranda",
             "count_siswa" => $count_siswa,

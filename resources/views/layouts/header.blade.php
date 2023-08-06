@@ -28,5 +28,8 @@
     <link href="{{ asset('Template') }}/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <link href="{{ asset('Template') }}/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+
 
 </head>
