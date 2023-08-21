@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Aspek;
-use App\Models\Atribut;
 use App\Models\Pohon;
+use App\Models\Siswa;
+use App\Models\Atribut;
 use App\Models\Kriteria;
 use App\Models\Penilaian;
-use App\Models\Siswa;
 use App\Models\Subkriteria;
 use Illuminate\Http\Request;
+use App\Http\Controllers\PerhitunganController;
 
 class PenilaianController extends Controller
 {
@@ -22,11 +23,16 @@ class PenilaianController extends Controller
     {
         $data = Atribut::with('nilais')->get();
         $data_siswa = Siswa::get();
+        $data_penilaian = Penilaian::with('siswas', 'atributs', 'nilais')->get();
         $counts = [];
         foreach ($data_siswa as $siswa) {
             $counts[$siswa->id] = $this->cekbtn($siswa->id);
         }
-        return view('data_penilaian.index', compact('data', 'data_siswa', 'counts'))->with([
+
+        $perhitungan = new PerhitunganController;
+        $perhitungan->index();
+
+        return view('data_penilaian.index', compact('data', 'data_siswa', 'data_penilaian', 'counts'))->with([
             "title" => "Data Penilaian"
         ]);
     }

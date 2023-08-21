@@ -14,11 +14,11 @@ class Nilai extends Model
 
     public function atribut()
     {
-        return $this->belongsTo(Atribut::class);
+        return $this->belongsTo(Atribut::class, 'atribut_id');
     }
 
-    public function penilaians()
-    {
-        return $this->hasMany(Penilaian::class, 'nilai_id');
-    }
+    // public function penilaians()
+    // {
+    //     return $this->hasMany(Penilaian::class, 'nilai_id');
+    // }
 }

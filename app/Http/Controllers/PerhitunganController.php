@@ -162,6 +162,7 @@ class PerhitunganController extends Controller
 
             $predictions[] = [
                 'nama' => $data->nama,
+                'usia' => $data->usia,
                 'hasil' => $predictedClass,
                 'class_probabilities' => $classProbabilities,
             ];
@@ -193,6 +194,7 @@ class PerhitunganController extends Controller
     {
         foreach ($predictions as $prediction) {
             $nama_lengkap = $prediction['nama'];
+            $usia = $prediction['usia'];
             $hasil = $prediction['hasil'];
             $prob_siap = $prediction['class_probabilities']['Siap']['posterior'];
             $prob_belum_siap = $prediction['class_probabilities']['Belum Siap']['posterior'];
@@ -208,6 +210,7 @@ class PerhitunganController extends Controller
 
             Hasil::create([
                 'nama_lengkap' => $nama_lengkap,
+                'usia' => $usia,
                 'hasil' => $hasil,
                 'prob_siap' => $prob_siap,
                 'prob_belum_siap' => $prob_belum_siap,
@@ -219,6 +222,7 @@ class PerhitunganController extends Controller
     {
         foreach ($predictions as $prediction) {
             $nama_lengkap = $prediction['nama'];
+            $usia = $prediction['usia'];
             $hasil = $prediction['hasil'];
             $prob_siap = $prediction['class_probabilities']['Siap']['posterior'];
             $prob_belum_siap = $prediction['class_probabilities']['Belum Siap']['posterior'];
@@ -232,6 +236,7 @@ class PerhitunganController extends Controller
 
             Riwayat::create([
                 'nama_lengkap' => $nama_lengkap,
+                'usia' => $usia,
                 'hasil' => $hasil,
                 'prob_siap' => $prob_siap,
                 'prob_belum_siap' => $prob_belum_siap,

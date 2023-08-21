@@ -14,7 +14,7 @@ class Atribut extends Model
 
     public function nilais()
     {
-        return $this->hasMany(Nilai::class);
+        return $this->hasMany(Nilai::class, 'atribut_id');
     }
 
     public function penilaians()

@@ -14,18 +14,18 @@ class Penilaian extends Model
     ];
 
 
-    public function atribut()
+    public function atributs()
     {
-        return $this->belongsTo(Atribut::class);
+        return $this->belongsTo(Atribut::class, 'atribut_id');
     }
 
-    public function nilai()
+    public function nilais()
     {
-        return $this->belongsTo(Nilai::class);
+        return $this->belongsTo(Nilai::class, 'nilai_id');
     }
 
-    public function siswa()
+    public function siswas()
     {
-        return $this->belongsTo(Siswa::class);
+        return $this->belongsTo(Siswa::class, 'siswa_id');
     }
 }

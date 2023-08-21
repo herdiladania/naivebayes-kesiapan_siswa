@@ -24,6 +24,7 @@
                             <tr>
                                 <th width="5%">No</th>
                                 <th>Nama Lengkap</th>
+                                <th>Usia</th>
                                 <th>Kesiapan</th>
                             </tr>
                         </thead>
@@ -32,6 +33,7 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $keys->nama_lengkap }}</td>
+                                    <td>{{ $keys->usia }}</td>
                                     <td>{{ $keys->hasil }}</td>
                                 </tr>
                             @endforeach

@@ -16,6 +16,7 @@ class CreateRiwayatsTable extends Migration
         Schema::create('riwayats', function (Blueprint $table) {
             $table->id();
             $table->string('nama_lengkap');
+            $table->integer('usia');
             $table->string('hasil');
             $table->decimal('prob_siap', 8, 6);
             $table->decimal('prob_belum_siap', 8, 6);

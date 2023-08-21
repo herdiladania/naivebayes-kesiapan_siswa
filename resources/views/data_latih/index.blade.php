@@ -252,7 +252,7 @@
                                                         Harapan (BSH)</option>
                                                     <option value="Berkembang Sangat Baik (BSB)">Berkembang Sangat Baik
                                                         (BSB)
-                                                    </option>
+ </option>
                                                 </select>
                                             </div>
                                             <div class="form-group">

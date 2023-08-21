@@ -34,14 +34,22 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $keys->nama_lengkap }}</td>
                                     <td>
-                                        <a href="#" class="btn btn-{{ $counts[$keys->id] == 0 ? 'info' : 'danger' }}"
-                                            data-toggle="modal"
-                                            data-target="{{ $counts[$keys->id] == 0 ? '#setModal' . $keys->id : '#deleteModal' . $keys->id }}">
-                                            <i
-                                                class="fas fa-{{ $counts[$keys->id] == 0 ? 'plus' : 'trash-alt' }} fa-xs"></i>
-                                        </a>
+                                        @if ($counts[$keys->id] == 0)
+                                            <a href="#" class="btn btn-info" data-toggle="modal"
+                                                data-target="#setModal{{ $keys->id }}">
+                                                <i class="fas fa-plus fa-xs"></i>
+                                            </a>
+                                        @else
+                                            <a href="#" class="btn btn-danger" data-toggle="modal"
+                                                data-target="#deleteModal{{ $keys->id }}">
+                                                <i class="fas fa-trash-alt fa-xs"></i>
+                                            </a>
+                                            <a href="#" class="btn btn-secondary" data-toggle="modal"
+                                                data-target="#showModal{{ $keys->id }}">
+                                                <i class="fas fa-eye fa-xs"></i>
+                                            </a>
+                                        @endif
                                     </td>
-
                                     <td>
                                         <span class="badge badge-{{ $counts[$keys->id] == 0 ? 'warning' : 'success' }}">
                                             {{ $counts[$keys->id] == 0 ? 'Belum dinilai' : 'Sudah dinilai' }}
@@ -105,7 +113,6 @@
                         </div>
                     </div>
                 </div>
-
                 <!-- Delete Modal -->
                 <div class="modal fade" id="deleteModal{{ $keys->id }}" tabindex="-1" role="dialog"
                     aria-labelledby="myModalLabel" aria-hidden="true">
@@ -127,6 +134,43 @@
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger">Delete</button>
                                 </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Show Modal -->
+                <div class="modal fade" id="showModal{{ $keys->id }}" tabindex="-1" role="dialog"
+                    aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-md">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="myModalLabel"><i class="fas fa-eye"></i> Detail Penilaian
+                                </h5>
+                                <button type="button" class="close" data-dismiss="modal"
+                                    aria-hidden="true">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <h6>Nama Siswa: {{ $keys->nama_lengkap }}</h6>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Nama Atribut</th>
+                                            <th>Nilai</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($keys->penilaians as $penilaian)
+                                            <tr>
+                                                <td>{{ $penilaian->atributs->nama_atribut }}</td>
+                                                <td>{{ $penilaian->nilais->nama_nilai }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                             </div>
                         </div>
                     </div>

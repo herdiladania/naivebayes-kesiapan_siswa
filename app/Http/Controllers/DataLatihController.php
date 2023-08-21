@@ -55,4 +55,42 @@ class DataLatihController extends Controller
             return redirect()->route('data-latih')->with('error', 'Gagal. Pilih File Data Latih.');
         }
     }
+
+    public function update(Request $request, $id)
+    {
+        $data = DataLatih::findOrFail($id);
+        $validatedData = $request->validate([
+            'nama_lengkap' => 'required|string',
+            'usia' => 'required|integer',
+            'motorik_kasar' => 'required|string',
+            'motorik_halus' => 'required|date',
+            'kognitif_anak' => 'required|string',
+            'kemandirian' => 'required|string',
+            'kompetensi_dasar_akhlak_perilaku_sosial_emosi' => 'required|string',
+            'kompetensi_dasar_umum' => 'required|string',
+            'kesiapan' => 'required|string',
+        ], [
+            'nama_lengkap.required' => 'Nama Lengkap Masih Kosong',
+            'usia.required' => 'Usia Masih Kosong',
+            'motorik_kasar.required' => 'Motorik Kasar Masih Kosong',
+            'motorik_halus.required' => 'Motorik Halus Masih Kosong',
+            'kognitif_anak.required' => 'Koginitf Anak Masih Kosong',
+            'kemandirian.required' => 'Kemandirian Masih Kosong',
+            'kompetensi_dasar_akhlak_perilaku_sosial_emosi.required' => 'Kompetensi Akhlak Masih Kosong',
+            'kompetensi_dasar_umum.required' => 'Kompotensi Dasar Umum Masih Kosong',
+            'kesiapan.required' => 'Kesiapan Masih Kosong',
+        ]);
+
+
+        $data->update($validatedData);
+
+        return redirect()->route('data-latih')->with('success', 'Data berhasil diperbaharui');
+    }
+
+    public function destroy($id)
+    {
+        $data = DataLatih::find($id);
+        $data->delete();
+        return redirect()->route('data-siswa')->with('success', 'Data Berhasil Di Hapus');
+    }
 }

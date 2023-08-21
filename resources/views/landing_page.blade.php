@@ -45,7 +45,7 @@
     <section id="hero-animated" class="hero-animated d-flex align-items-center">
         <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative"
             data-aos="zoom-out">
-            <img src="{{ asset('HeroBiz') }}/assets/img/hero-carousel/1.svg" class="img-fluid animated">
+            <img src="{{ asset('HeroBiz') }}/assets/img/logo.png" class="img-fluid animated">
             <h3>Selamat Datang Di <span>SIPAMAD</span></h3>
             <p>Sebuah sistem untuk menentukan kesiapan siswa masuk sekolah dasar dengan penerapan
                 algoritma Naive Bayes</p>

@@ -643,6 +643,7 @@ section {
   background: rgba(var(--color-secondary-dark-rgb), 0.8);
 }
 
+
 .hero-animated .btn-watch-video {
   font-size: 16px;
   transition: 0.5s;
